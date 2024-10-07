@@ -5,7 +5,7 @@ Você pôde perceber em determinado momento da disciplina que as ferramentas CAS
 
 Para esta atividade você deve considerar o seguinte modelo de dados:
 <div style="text-align:center;">
-    <img src="https://ava3.furb.br/pluginfile.php/519554/mod_assign/intro/MER_exercicios_SQL%28webaula17%29.png" alt="Img">
+    <img src="https://imgur.com/DIxNgYa.png" alt="Img">
 </div>
 
 ##### Por onde começar
