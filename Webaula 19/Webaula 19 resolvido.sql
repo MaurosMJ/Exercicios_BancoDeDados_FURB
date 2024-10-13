@@ -117,3 +117,16 @@ INSERT INTO veiculo_acessorio VALUES ('VWX9012', 8);
 INSERT INTO veiculo_acessorio VALUES ('YZA3456', 9);
 INSERT INTO veiculo_acessorio VALUES ('BCD7890', 10);
 COMMIT;
+
+-- Insert na tabela Veiculo_Combustivel
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (1, 'ABC1234'); -- Gasolina for ABC1234
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (2, 'DEF5678'); -- Álcool for DEF5678
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (3, 'GHI9012'); -- Diesel for GHI9012
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (4, 'JKL3456'); -- GNV for JKL3456
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (5, 'MNO7890'); -- Flex for MNO7890
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (6, 'PQR1234'); -- Híbrido for PQR1234
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (7, 'STU5678'); -- Elétrico for STU5678
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (8, 'VWX9012'); -- Biodiesel for VWX9012
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (9, 'YZA3456'); -- Hidrogênio for YZA3456
+INSERT INTO veiculo_combustivel (cd_combustivel, nr_placa) VALUES (10, 'BCD7890'); -- Etanol for BCD7890
+COMMIT;
