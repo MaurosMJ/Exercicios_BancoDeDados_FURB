@@ -28,7 +28,7 @@ h)     Listar os veículos (com placa, descrição da marca, descrição do mode
 
 i)     Listar dados completos dos veículos: placa, descrição da marca, descrição do modelo, descrição da cor, ano modelo, ano fabricação, quantidade de km rodado, quantidade de portas, descrição dos acessórios e descrição do combustível que o move;
 
-i)      Listar os veículos (placa, descrição da marca, descrição do modelo) cadastrados que apresentam cor "branco(a)", são movidos a diesel, e apresentam ano modelo superior a 2010;
+j)      Listar os veículos (placa, descrição da marca, descrição do modelo) cadastrados que apresentam cor "branco(a)", são movidos a diesel, e apresentam ano modelo superior a 2010;
 
 Após a criação do script, execute os mesmos no SGBD de sua escolha e verifique se está em conformidade com o padrão adotado. Qualquer dúvida utilize o fórum geral do ciclo e compartilhe suas dúvidas e descobertas.
 
