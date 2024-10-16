@@ -4,6 +4,9 @@
 
 --a) Listar a descrição da marca e a descrição do modelo de todos os veículos com data de fabricação acima da média de fabricação (ano) entre os veículos cadastrados;
 
+select ma.ds_marca, mo.ds_modelo from veiculo v, marca ma , modelo mo where (ma.cd_marca = mo.cd_modelo) and (v.cd_modelo = mo.cd_modelo)
+and v.nr_ano_fab > (select round(avg(nr_ano_fab)) from veiculo);
+
 --b) Listar a placa e a descrição do modelo do(s) veículo(s) mais novo(s) cadastrado(s) - considerar o ano modelo;
 
 --c) Listar dados dos veículos: placa, descrição da marca, descrição do modelo que são movidos por mais de um combustível;
