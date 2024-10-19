@@ -154,3 +154,28 @@ WHERE
     );
 
 --g) Listar qual(is) acessórios não estão associados a veículos fabricados a partir do ano de 2010;
+-- Apenas para testes: insert into acessorio values (11, 'Freio ABS');commit;
+
+WITH tabela AS (
+    SELECT
+        a.ds_acessorio
+    FROM
+        acessorio a
+    WHERE
+        NOT EXISTS (
+            SELECT
+                va.cd_acessorio,
+                va.nr_placa
+            FROM
+                veiculo_acessorio va,
+                veiculo v
+            WHERE
+                ( a.cd_acessorio = va.cd_acessorio )
+                and ( v.nr_placa = va.nr_placa) and
+                v.nr_ano_fab >= 2010
+        )
+)
+SELECT
+    t.*
+FROM
+    tabela t;
