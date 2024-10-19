@@ -154,31 +154,38 @@ FROM
 
 --g) Criação de uma view para listar quais veículos (número da placa, descrição da marca e modelo) que são movidos por mais de um combustível.
 
-WITH tabela AS (
-    SELECT
-        v.nr_placa,
-        ma.ds_marca,
-        mo.ds_modelo
+CREATE OR REPLACE VIEW v_qtd_carros_bicombustivel AS
+    WITH tabela AS (
+        SELECT
+            v.nr_placa,
+            ma.ds_marca,
+            mo.ds_modelo
+        FROM
+            veiculo v,
+            marca   ma,
+            modelo  mo
+        WHERE
+            ( v.cd_modelo = mo.cd_modelo )
+            AND ( mo.cd_marca = ma.cd_marca )
+    )
+    SELECT DISTINCT
+        t.nr_placa  AS "Placa",
+        t.ds_marca  AS "Marca",
+        t.ds_modelo AS "Modelo"
     FROM
-        veiculo v,
-        marca   ma,
-        modelo  mo
+        veiculo_combustivel vc,
+        tabela              t
     WHERE
-        ( v.cd_modelo = mo.cd_modelo )
-        AND ( mo.cd_marca = ma.cd_marca )
-)
-SELECT DISTINCT
-    t.nr_placa  AS "Placa",
-    t.ds_marca  AS "Marca",
-    t.ds_modelo AS "Modelo"
+        ( t.nr_placa = vc.nr_placa )
+    GROUP BY
+        t.nr_placa,
+        t.ds_marca,
+        t.ds_modelo
+    HAVING
+        COUNT(*) > 1;
+    
+--Testando
+SELECT
+    *
 FROM
-    veiculo_combustivel vc,
-    tabela              t
-WHERE
-    ( t.nr_placa = vc.nr_placa )
-GROUP BY
-    t.nr_placa,
-    t.ds_marca,
-    t.ds_modelo
-HAVING
-    COUNT(*) > 1;
+    v_qtd_carros_bicombustivel;
