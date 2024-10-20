@@ -167,7 +167,7 @@ INSERT INTO ator (
     nm_ator
 ) VALUES (
     ator_seq.NEXTVAL,
-    'Ator 5'
+    'Ator 7'
 );
 
 -- Inserindo Filmes
@@ -184,10 +184,10 @@ INSERT INTO filme (
     filme_seq.NEXTVAL,
     1,
     1,
-    'Filme 1',
-    'Sinopse do Filme 1',
+    'Filme 7',
+    'Sinopse do Filme 7',
     '120 min',
-    TO_DATE('2024-01-01', 'YYYY-MM-DD'),
+    TO_DATE('2019-01-01', 'YYYY-MM-DD'),
     'S'
 );
 
@@ -264,10 +264,10 @@ INSERT INTO filme (
     filme_seq.NEXTVAL,
     2,
     2,
-    'Filme 5',
-    'Sinopse do Filme 5',
+    'Filme 6',
+    'Sinopse do Filme 6',
     '130 min',
-    TO_DATE('2024-05-01', 'YYYY-MM-DD'),
+    TO_DATE('2019-05-01', 'YYYY-MM-DD'),
     'S'
 );
 
@@ -375,3 +375,15 @@ GROUP BY
     g.ds_genero;
 
 --(1,5 Pontos) Exibir o(s) nome(s) do(s) ator(es) que não está(ão) associado(s) a nenhum filme em que a data de lançamento do filme tenha sido no ano de 2019.
+
+SELECT 
+    a.nm_ator
+FROM 
+    ator a
+LEFT JOIN 
+    filme_ator fa ON a.cd_ator = fa.cd_ator
+LEFT JOIN 
+    filme f ON fa.cd_filme = f.cd_filme
+WHERE 
+    f.dt_lancamento IS NULL 
+    OR EXTRACT(YEAR FROM f.dt_lancamento) != 2019;
